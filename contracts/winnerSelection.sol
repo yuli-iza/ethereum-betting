@@ -7,7 +7,7 @@ contract bettingGame {
     address public winner;
 
     // Assign winner (address) and payout in function
-    function pseudoRandomWinner() external  {
+    function pseudoRandomWinner() private {
         // If payment from both player 1 and 2 is not true then terminate
         // Cases: bets werent properly placed, or player did not have sufficient balance 
         require(paymentPlayer1 && paymentPlayer2, "Bets have not been placed");
