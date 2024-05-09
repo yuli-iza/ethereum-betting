@@ -41,13 +41,13 @@ contract bettingGame {
     }
 
     // Assign winner (address) and payout in function
-    function pseudoRandomWinner(address player2) private {
+    function pseudoRandomWinner(address player1) private {
         // Use hash of the transaction sender as a pseudo-random factor
         bytes32 randNumHash = keccak256(abi.encodePacked(msg.sender, block.timestamp));
         
         // No implementation in the case of a tie, only one winner selected
         if (uint(randNumHash) % 2 == 0) {
-            winner = player2;
+            winner = player1;
         } else {
             winner = msg.sender;
         }
